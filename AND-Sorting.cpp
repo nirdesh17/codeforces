@@ -2,27 +2,26 @@
 using namespace std;
 #define ll long long int
 
+ll max(ll a,ll b)
+{
+    return a>b?a:b;
+}
+
 void solve() {
     ll n;
     cin>>n;
-    ll cnt=0;
-    while(n>1)
+    vector<int> a(n);
+    vector<int> b;
+    for(ll i=0;i<n;i++)
     {
-        if(n%6==0)
-        {
-            n=n/6;
-            cnt++;
-        }
-        else if(n%3==0)
-        {
-            n=n*2;
-            cnt++;
-        }
-        else
-        {
-            cout<<"-1"<<endl;
-            return;
-        }
+        cin>>a[i];
+        if(a[i]!=i)
+            b.push_back(a[i]&i);
+    }
+    ll cnt=b[0];
+    for(int i=1;i<b.size();i++)
+    {
+        cnt=cnt&b[i];
     }
     cout<<cnt<<endl;
 }

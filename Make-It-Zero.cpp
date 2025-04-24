@@ -5,29 +5,28 @@ using namespace std;
 void solve() {
     ll n;
     cin>>n;
+    ll ans=0;
     vector<ll> a(n);
-    for(ll i=0; i<n; i++) {
+    for(int i=0;i<n;i++)
+    {
         cin>>a[i];
+        ans=ans^a[i];
     }
-    ll mx=INT_MIN;
+    if(n%2==0)
+    {
+        cout<<2<<endl;
+        cout<<1<<" "<<n<<endl;
+        cout<<1<<" "<<n<<endl;
+    }
+    else
+    {
+        cout<<4<<endl;
+        cout<<1<<" "<<n-1<<endl;
+        cout<<1<<" "<<n-1<<endl;
+        cout<<n-1<<" "<<n<<endl;
+        cout<<n-1<<" "<<n<<endl;
+    }
     
-    for(int i=0;i<n;i++)
-    {
-        mx=max(mx,a[(i-1+n)%n]-a[i]);
-    }
-
-    for(int i=0;i<n;i++)
-    {
-        mx=max(mx,a[i]-a[0]);;
-    }
-
-    for(int i=0;i<n;i++)
-    {
-        mx=max(mx,a[n-1]-a[i]);
-    }
-
-    cout<<mx<<endl;
-
 }
 
 int main() {

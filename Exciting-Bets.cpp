@@ -3,23 +3,12 @@ using namespace std;
 #define ll long long int
 
 void solve() {
-    ll n;
-    cin>>n;
-    if(n%2!=0)
-    {
-        cout<<"YES"<<endl;
-    }
-    else
-    {
-        if((n & (n-1))==0)
-        {
-            cout<<"NO"<<endl;
-        }
-        else
-        {
-            cout<<"YES"<<endl;
-        }
-    }
+    ll n,m;
+    cin>>n>>m;
+    if(m>n) swap(n,m);
+    ll ans=n-m;
+    if(ans==0) cout<<0<<" "<<0<<endl;
+    else cout<<ans<<" "<<min(m%ans,ans-m%ans)<<endl;
 }
 
 int main() {

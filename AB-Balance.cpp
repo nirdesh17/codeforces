@@ -3,22 +3,16 @@ using namespace std;
 #define ll long long int
 
 void solve() {
-    ll n;
-    cin>>n;
-    if(n%2!=0)
+    string s;
+    cin>>s;
+    if(s[0]==s[s.size()-1])
     {
-        cout<<"YES"<<endl;
+        cout<<s<<endl;
     }
     else
     {
-        if((n & (n-1))==0)
-        {
-            cout<<"NO"<<endl;
-        }
-        else
-        {
-            cout<<"YES"<<endl;
-        }
+        s[s.size()-1]=s[0];
+        cout<<s<<endl;
     }
 }
 

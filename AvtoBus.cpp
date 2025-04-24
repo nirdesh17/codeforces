@@ -5,21 +5,19 @@ using namespace std;
 void solve() {
     ll n;
     cin>>n;
-    if(n%2!=0)
+    if(n%2!=0 || n<4)
     {
-        cout<<"YES"<<endl;
+        cout<<-1<<endl;
+        return;
     }
-    else
+
+    ll mn=n/6;
+    if(n%6!=0)
     {
-        if((n & (n-1))==0)
-        {
-            cout<<"NO"<<endl;
-        }
-        else
-        {
-            cout<<"YES"<<endl;
-        }
+        mn++;
     }
+    ll mx=n/4;
+    cout<<mn<<" "<<mx<<endl;
 }
 
 int main() {

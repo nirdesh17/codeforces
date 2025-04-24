@@ -5,25 +5,25 @@ using namespace std;
 void solve() {
     ll n;
     cin>>n;
+    vector<ll> a(n);
+    for(ll i=0; i<n; i++) {
+        cin>>a[i];
+    }
     ll cnt=0;
-    while(n>1)
+    for(int i=n-2;i>=0;i--)
     {
-        if(n%6==0)
+        while(a[i]>=a[i+1] && a[i]>0)
         {
-            n=n/6;
+            a[i]=a[i]>>1;
             cnt++;
         }
-        else if(n%3==0)
+        if(a[i]==a[i+1])
         {
-            n=n*2;
-            cnt++;
-        }
-        else
-        {
-            cout<<"-1"<<endl;
+            cout<<-1<<endl;
             return;
         }
     }
+    // cout<<"ans-"<<cnt<<endl;
     cout<<cnt<<endl;
 }
 

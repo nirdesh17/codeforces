@@ -14,29 +14,25 @@ int main()
     {
         ll n,l,r;
         cin>>n>>l>>r;
-        vector<ll> a;
-        ll counter=1;
-        for(ll i=l;i<r+1;i++)
+        vector<ll> a(n);
+        ll k=1;
+        // a[i] can be duplicate
+        for(int i=1;i<=n;i++)
         {
-            if(counter>n)
-            break;
-            if(__gcd(i,counter)==counter)
-            {
-                a.push_back(i);
-                counter++;
-            }
+            a[i-1]=(((l-1)/i)+1)*i;
+            k=k&&a[i-1]<=r;
         }
-        if(a.size()==n)
+        if(k)
         {
             cout<<"YES"<<endl;
-            for(ll i=0;i<a.size();i++)
-            {
+            for(int i=0;i<n;i++)
                 cout<<a[i]<<" ";
-            }
             cout<<endl;
         }
         else
-        cout<<"NO"<<endl;
+        {
+            cout<<"NO"<<endl;
+        }
     }
     return 0;
 }

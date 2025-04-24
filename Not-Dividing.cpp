@@ -8,26 +8,17 @@ void solve() {
     vector<ll> a(n);
     for(ll i=0; i<n; i++) {
         cin>>a[i];
+        a[i]++;
     }
-    ll mx=INT_MIN;
     
-    for(int i=0;i<n;i++)
+    for(int i=1;i<n;i++)
     {
-        mx=max(mx,a[(i-1+n)%n]-a[i]);
+        if(a[i]%a[i-1]==0) a[i]++;
     }
 
-    for(int i=0;i<n;i++)
-    {
-        mx=max(mx,a[i]-a[0]);;
-    }
+    for(int i=0;i<n;i++) cout<<a[i]<<" ";
 
-    for(int i=0;i<n;i++)
-    {
-        mx=max(mx,a[n-1]-a[i]);
-    }
-
-    cout<<mx<<endl;
-
+    cout<<endl;
 }
 
 int main() {

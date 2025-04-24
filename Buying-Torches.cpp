@@ -3,23 +3,19 @@ using namespace std;
 #define ll long long int
 
 void solve() {
-    ll n;
-    cin>>n;
-    if(n%2!=0)
-    {
-        cout<<"YES"<<endl;
-    }
-    else
-    {
-        if((n & (n-1))==0)
-        {
-            cout<<"NO"<<endl;
-        }
-        else
-        {
-            cout<<"YES"<<endl;
-        }
-    }
+    ll x,y,k;
+    cin>>x>>y>>k;
+    ll a=(y*k)+k-1;
+    ll trade=(a/(x-1));
+    if(a%(x-1)!=0) trade++;
+    // ll n=a-trade;
+    // n++;
+    // while(a>n)
+    // {
+    //     trade++;
+    //     n+=(x-1);
+    // }
+    cout<<trade+k<<endl;
 }
 
 int main() {

@@ -6,28 +6,26 @@ void solve() {
     ll n;
     cin>>n;
     vector<ll> a(n);
-    for(ll i=0; i<n; i++) {
+    ll minus=0,mn=INT_MAX;
+    ll sum=0;
+    for(int i=0;i<n;i++)
+    {
         cin>>a[i];
+        if(a[i]<0)
+        {
+            minus++;
+        }
+        mn=min(mn,abs(a[i]));
+        sum+=abs(a[i]);
     }
-    ll mx=INT_MIN;
-    
-    for(int i=0;i<n;i++)
+    if(minus%2==0)
     {
-        mx=max(mx,a[(i-1+n)%n]-a[i]);
+        cout<<sum<<endl;
     }
-
-    for(int i=0;i<n;i++)
+    else
     {
-        mx=max(mx,a[i]-a[0]);;
-    }
-
-    for(int i=0;i<n;i++)
-    {
-        mx=max(mx,a[n-1]-a[i]);
-    }
-
-    cout<<mx<<endl;
-
+        cout<<sum-2*mn<<endl;
+    } 
 }
 
 int main() {

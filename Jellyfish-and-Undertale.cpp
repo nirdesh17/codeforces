@@ -3,23 +3,15 @@ using namespace std;
 #define ll long long int
 
 void solve() {
-    ll n;
-    cin>>n;
-    if(n%2!=0)
-    {
-        cout<<"YES"<<endl;
+    ll a,b,n;
+    cin >> a >> b >> n;
+    vector<ll> time(n);
+    ll ans=0;
+    for(int i=0;i<n;i++) {
+        cin >> time[i];
+        ans+=min(time[i],a-1);
     }
-    else
-    {
-        if((n & (n-1))==0)
-        {
-            cout<<"NO"<<endl;
-        }
-        else
-        {
-            cout<<"YES"<<endl;
-        }
-    }
+    cout<<ans+b<<endl;
 }
 
 int main() {

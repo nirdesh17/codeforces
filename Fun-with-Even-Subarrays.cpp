@@ -4,24 +4,25 @@ using namespace std;
 
 void solve() {
     ll n;
-    cin>>n;
+    cin >> n;
+    vector<ll> a(n);
+    for (ll i = 0; i < n; i++) {
+        cin >> a[i];
+    }
+    ll sum=1;
     ll cnt=0;
-    while(n>1)
+    for(int i=n-2;i>=0;)
     {
-        if(n%6==0)
+        if(a[i]!=a[n-1])
         {
-            n=n/6;
-            cnt++;
-        }
-        else if(n%3==0)
-        {
-            n=n*2;
+            i=i-sum;
+            sum+=sum;
             cnt++;
         }
         else
         {
-            cout<<"-1"<<endl;
-            return;
+            i--;
+            sum++;
         }
     }
     cout<<cnt<<endl;

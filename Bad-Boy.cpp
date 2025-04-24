@@ -3,23 +3,9 @@ using namespace std;
 #define ll long long int
 
 void solve() {
-    ll n;
-    cin>>n;
-    if(n%2!=0)
-    {
-        cout<<"YES"<<endl;
-    }
-    else
-    {
-        if((n & (n-1))==0)
-        {
-            cout<<"NO"<<endl;
-        }
-        else
-        {
-            cout<<"YES"<<endl;
-        }
-    }
+    ll n,m,a,b;
+    cin>>n>>m>>a>>b;
+    cout<<"1 1 "<<n<<" "<<m<<endl;
 }
 
 int main() {

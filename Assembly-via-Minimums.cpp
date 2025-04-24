@@ -4,22 +4,19 @@ using namespace std;
 
 void solve() {
     ll n;
-    cin>>n;
-    if(n%2!=0)
-    {
-        cout<<"YES"<<endl;
+    cin >> n;
+    ll m=n*(n-1)/2;
+    vector<ll> a(m);
+    for (ll i=0; i<m; i++) {
+        cin >> a[i];
     }
-    else
+    sort(a.begin(), a.end());
+    for(int i=0;i<m;i+=--n)
     {
-        if((n & (n-1))==0)
-        {
-            cout<<"NO"<<endl;
-        }
-        else
-        {
-            cout<<"YES"<<endl;
-        }
+        cout<<a[i]<<" ";
     }
+    cout<<1000000000;
+    cout<<endl;
 }
 
 int main() {

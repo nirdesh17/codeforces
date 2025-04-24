@@ -2,32 +2,30 @@
 using namespace std;
 #define ll long long int
 
+template<typename T>
+T max(T x,T y)
+{
+    return x>y?x:y;
+}
+
+template<typename T>
+T min(T x,T y)
+{
+    return x<y?x:y;
+}
+
+
 void solve() {
-    ll n;
+    int n;
     cin>>n;
     vector<ll> a(n);
-    for(ll i=0; i<n; i++) {
+    set<ll> s;
+    for(int i=0;i<n;i++)
+    {
         cin>>a[i];
+        s.insert(a[i]);
     }
-    ll mx=INT_MIN;
-    
-    for(int i=0;i<n;i++)
-    {
-        mx=max(mx,a[(i-1+n)%n]-a[i]);
-    }
-
-    for(int i=0;i<n;i++)
-    {
-        mx=max(mx,a[i]-a[0]);;
-    }
-
-    for(int i=0;i<n;i++)
-    {
-        mx=max(mx,a[n-1]-a[i]);
-    }
-
-    cout<<mx<<endl;
-
+    cout<<s.size()<<endl;
 }
 
 int main() {

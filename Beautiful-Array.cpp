@@ -1,69 +1,47 @@
 #include<bits/stdc++.h>
 using namespace std;
 #define ll long long int
-  
-int main()
-{
+
+void solve() {
+    ll n,k,b,s;
+    cin>>n>>k>>b>>s;
+    vector<ll> v(n,0);
+    v[n-1]=k*b;
+    s-=v[n-1];
+    if(0>s)
+    {
+        cout<<-1<<endl;
+        return;
+    }
+    int i=n-1;
+    while (i>=0 && s>0)
+    {
+        v[i]+=min(k-1,s);
+        s-=min(k-1,s);
+        i--;
+        // cout<<"s-"<<s;
+    }
+    if(s>0)
+    {
+        cout<<-1<<endl;
+    }
+    else
+    {
+        for(int i=0;i<n;i++)
+        {
+            cout<<v[i]<<" ";
+        }
+        cout<<endl;
+    }
+}
+
+int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     ll t;
-    cin>>t;
-    while(t--)
-    {
-        ll n,k,b,s;
-        cin>>n>>k>>b>>s;
-        ll a[n];
-        if(k*b>s)
-        {
-            cout<<-1<<endl;
-            continue;
-        }
-        
-        a[n-1]=k*b;
-        s=s-a[n-1];
-        if(n==1)
-        {
-            if(s>0)
-            {cout<<-1<<endl;
-            continue;}
-            else
-            {
-                cout<<a[n-1]<<endl;
-                continue;
-            }
-        }
-        else if(s/(n-1)>k)
-        {
-            if(s-k*(n-1)<=a[n-1]/k)
-            {
-                a[n-1]=s-k*(n-1)+a[n-1];
-                s=s-k*(n-1);
-            }
-            else{
-                cout<<-1<<endl;
-                continue;
-                }
-        }
-    
-            ll i=n-2;
-            while(i>=0 && k<=s)
-            {
-                a[i]=k-1;
-                s=s-a[i];
-                i--;
-            }
-            if(i>=0)
-            {a[i]=s;
-            for(ll j=0;j<i;j++)
-            {
-                a[j]=0;
-            }}
-            for(ll j=0;j<n;j++)
-            {
-                cout<<a[j]<<" ";
-            }
-            cout<<endl;
-        
+    cin >> t;
+    while (t--) {
+        solve();
     }
     return 0;
 }

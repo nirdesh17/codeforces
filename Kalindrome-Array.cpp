@@ -72,18 +72,16 @@
 using namespace std;
 #define ll long long int
 
-bool isPalindrome(vector<ll>& b, int skipIndex = -1) {
+bool isPalindrome(vector<ll>& b, int a) {
     int i = 0, j = b.size() - 1;
     while (i < j) {
-        if (i == skipIndex) 
+        while (b[i] == a) 
         {
             i++; 
-            continue;
         }
-        if (j == skipIndex)
+        while (b[j] == a)
         {
             j--; 
-            continue;
         }
         if (b[i] != b[j]) {
             return false;
@@ -105,7 +103,7 @@ void solve() {
     ll i = 0, j = n - 1;
     while (i < j) {
         if (a[i] != a[j]) {
-            if (isPalindrome(a, i) || isPalindrome(a, j)) {
+            if (isPalindrome(a, a[i]) || isPalindrome(a, a[j])) {
                 cout << "YES" << endl;
             } else {
                 cout << "NO" << endl;
@@ -115,8 +113,6 @@ void solve() {
         i++;
         j--;
     }
-    
-    // If the loop completes without finding a mismatch
     cout << "YES" << endl;
 }
 

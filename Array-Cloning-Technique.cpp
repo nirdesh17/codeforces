@@ -6,28 +6,28 @@ void solve() {
     ll n;
     cin>>n;
     vector<ll> a(n);
+    map<ll,ll> mp;
     for(ll i=0; i<n; i++) {
         cin>>a[i];
+        mp[a[i]]++;
     }
+
+    ll cnt=0;
     ll mx=INT_MIN;
-    
-    for(int i=0;i<n;i++)
+    for(auto i:mp)
     {
-        mx=max(mx,a[(i-1+n)%n]-a[i]);
+        mx=max(mx,i.second);
     }
 
-    for(int i=0;i<n;i++)
+    n=n-mx;
+    while(n>0)
     {
-        mx=max(mx,a[i]-a[0]);;
+        cnt+=(min(mx,n)+1);
+        n=n-mx;
+        mx=mx*2;
     }
-
-    for(int i=0;i<n;i++)
-    {
-        mx=max(mx,a[n-1]-a[i]);
-    }
-
-    cout<<mx<<endl;
-
+    // cout<<"ans-"<<cnt<<endl;
+    cout<<cnt<<endl;
 }
 
 int main() {

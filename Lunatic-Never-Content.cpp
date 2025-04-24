@@ -5,21 +5,16 @@ using namespace std;
 void solve() {
     ll n;
     cin>>n;
-    if(n%2!=0)
+    vector<ll> a(n);
+    for(int i=0;i<n;i++) cin>>a[i];
+    ll ans=0;
+    int i=0,j=n-1;
+    while(i<j)
     {
-        cout<<"YES"<<endl;
+        ans=__gcd(ans,abs(a[i]-a[j]));
+        i++;j--;
     }
-    else
-    {
-        if((n & (n-1))==0)
-        {
-            cout<<"NO"<<endl;
-        }
-        else
-        {
-            cout<<"YES"<<endl;
-        }
-    }
+    cout<<ans<<endl;
 }
 
 int main() {

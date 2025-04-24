@@ -2,24 +2,23 @@
 using namespace std;
 #define ll long long int
 
+template<typename T>
+T max(T x,T y)
+{
+    return x>y?x:y;
+}
+
+template<typename T>
+T min(T x,T y)
+{
+    return x<y?x:y;
+}
+
+
 void solve() {
     ll n;
     cin>>n;
-    if(n%2!=0)
-    {
-        cout<<"YES"<<endl;
-    }
-    else
-    {
-        if((n & (n-1))==0)
-        {
-            cout<<"NO"<<endl;
-        }
-        else
-        {
-            cout<<"YES"<<endl;
-        }
-    }
+    cout<<n*2<<endl;
 }
 
 int main() {

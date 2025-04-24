@@ -5,26 +5,20 @@ using namespace std;
 void solve() {
     ll n;
     cin>>n;
-    ll cnt=0;
-    while(n>1)
+    vector<ll> a(n);
+    for(ll i=0;i<n;i++) {
+        cin>>a[i];
+    }
+    for(int i=1;i<n-1;i++)
     {
-        if(n%6==0)
+        if(a[i-1]<a[i] && a[i]>a[i+1])
         {
-            n=n/6;
-            cnt++;
-        }
-        else if(n%3==0)
-        {
-            n=n*2;
-            cnt++;
-        }
-        else
-        {
-            cout<<"-1"<<endl;
+            cout<<"YES"<<endl;
+            cout<<i<<" "<<i+1<<" "<<i+2<<endl;
             return;
         }
     }
-    cout<<cnt<<endl;
+    cout<<"NO"<<endl;
 }
 
 int main() {

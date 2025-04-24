@@ -3,28 +3,30 @@ using namespace std;
 #define ll long long int
 
 void solve() {
-    ll n;
-    cin>>n;
-    ll cnt=0;
-    while(n>1)
+    string s;
+    cin>>s;
+    ll n=s.length();
+    ll zero=0,one=0;
+    for(ll i=0;i<n;i++)
     {
-        if(n%6==0)
+        if(s[i]=='0')
         {
-            n=n/6;
-            cnt++;
-        }
-        else if(n%3==0)
-        {
-            n=n*2;
-            cnt++;
+            zero++;
         }
         else
         {
-            cout<<"-1"<<endl;
-            return;
+            one++;
         }
     }
-    cout<<cnt<<endl;
+    ll mn=min(zero,one);
+    if(mn%2==0)
+    {
+        cout<<"NET"<<endl;
+    }
+    else
+    {
+        cout<<"DA"<<endl;
+    }
 }
 
 int main() {

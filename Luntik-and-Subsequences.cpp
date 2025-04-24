@@ -6,28 +6,15 @@ void solve() {
     ll n;
     cin>>n;
     vector<ll> a(n);
-    for(ll i=0; i<n; i++) {
+    ll zero=1,one=0;
+    for(ll i=0;i<n;i++){
         cin>>a[i];
+        if(a[i]==0) zero*=2;
+        else if(a[i]==1) one++;
     }
-    ll mx=INT_MIN;
-    
-    for(int i=0;i<n;i++)
-    {
-        mx=max(mx,a[(i-1+n)%n]-a[i]);
-    }
-
-    for(int i=0;i<n;i++)
-    {
-        mx=max(mx,a[i]-a[0]);;
-    }
-
-    for(int i=0;i<n;i++)
-    {
-        mx=max(mx,a[n-1]-a[i]);
-    }
-
-    cout<<mx<<endl;
-
+    if(zero==0)
+        zero=1;
+    cout<<one*zero<<endl;
 }
 
 int main() {

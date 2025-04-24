@@ -5,26 +5,24 @@ using namespace std;
 void solve() {
     ll n;
     cin>>n;
-    ll cnt=0;
-    while(n>1)
+    string s;
+    cin >> s;
+    ll mx=0;
+    ll cnt=1;
+    for(int i=0;i<n-1;i++)
     {
-        if(n%6==0)
+        if(s[i]==s[i+1])
         {
-            n=n/6;
-            cnt++;
-        }
-        else if(n%3==0)
-        {
-            n=n*2;
             cnt++;
         }
         else
         {
-            cout<<"-1"<<endl;
-            return;
+            mx=max(mx,cnt);
+            cnt=1;
         }
     }
-    cout<<cnt<<endl;
+    mx=max(mx,cnt);
+    cout<<mx+1<<endl;
 }
 
 int main() {

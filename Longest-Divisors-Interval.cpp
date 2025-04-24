@@ -5,23 +5,16 @@ using namespace std;
 void solve() {
     ll n;
     cin>>n;
-    ll cnt=0;
-    while(n>1)
+    int cnt=0;
+    for(int i=1;i<=n;i++)
     {
-        if(n%6==0)
+        if(n%i==0)
         {
-            n=n/6;
-            cnt++;
-        }
-        else if(n%3==0)
-        {
-            n=n*2;
             cnt++;
         }
         else
         {
-            cout<<"-1"<<endl;
-            return;
+            break;
         }
     }
     cout<<cnt<<endl;

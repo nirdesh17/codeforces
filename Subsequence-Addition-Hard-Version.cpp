@@ -4,22 +4,28 @@ using namespace std;
 
 void solve() {
     ll n;
-    cin>>n;
-    if(n%2!=0)
-    {
-        cout<<"YES"<<endl;
+    cin >> n;
+    vector<ll> a(n);
+    for (ll i = 0; i < n; i++) {
+        cin >> a[i];
     }
-    else
+    sort(a.begin(),a.end());
+    ll sum=1;
+    if(a[0]>sum)
     {
-        if((n & (n-1))==0)
+        cout<<"NO"<<endl;
+        return;
+    }
+    for(int i=1;i<n;i++)
+    {
+        if(a[i]>sum)
         {
             cout<<"NO"<<endl;
+            return;
         }
-        else
-        {
-            cout<<"YES"<<endl;
-        }
+        sum+=a[i];
     }
+    cout<<"YES"<<endl;
 }
 
 int main() {

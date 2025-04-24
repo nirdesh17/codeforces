@@ -5,29 +5,14 @@ using namespace std;
 void solve() {
     ll n;
     cin>>n;
-    vector<ll> a(n);
-    for(ll i=0; i<n; i++) {
+    vector<ll>a(n);
+    ll res=0;
+    for(int i=0;i<n;i++)
+    {
         cin>>a[i];
+        res=__gcd(res,abs(a[i]-i-1));
     }
-    ll mx=INT_MIN;
-    
-    for(int i=0;i<n;i++)
-    {
-        mx=max(mx,a[(i-1+n)%n]-a[i]);
-    }
-
-    for(int i=0;i<n;i++)
-    {
-        mx=max(mx,a[i]-a[0]);;
-    }
-
-    for(int i=0;i<n;i++)
-    {
-        mx=max(mx,a[n-1]-a[i]);
-    }
-
-    cout<<mx<<endl;
-
+    cout<<res<<endl;Odd Queries   
 }
 
 int main() {

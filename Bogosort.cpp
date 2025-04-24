@@ -5,21 +5,17 @@ using namespace std;
 void solve() {
     ll n;
     cin>>n;
-    if(n%2!=0)
+    vector<ll> v(n);
+    for(ll i=0;i<n;i++)
     {
-        cout<<"YES"<<endl;
+        cin>>v[i];
     }
-    else
+    sort(v.rbegin(),v.rend());
+    for(ll i=0;i<n;i++)
     {
-        if((n & (n-1))==0)
-        {
-            cout<<"NO"<<endl;
-        }
-        else
-        {
-            cout<<"YES"<<endl;
-        }
+        cout<<v[i]<<" ";
     }
+    cout<<endl;
 }
 
 int main() {
