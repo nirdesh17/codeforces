@@ -35,40 +35,67 @@ void solve() {
         }
     }
 
-    sort(even.rbegin(),even.rend());
-    sort(odd.rbegin(),odd.rend());
-
-    vector<ll> arr1;
-    ll i=0;
-    ll j=0;
     ll N=even.size();
     ll M=odd.size();
-    while(i<M && j<N){
-        arr1.push_back(odd[i++]);
-        arr1.push_back(even[j++]);
+
+    if(N>0){
+        sort(even.rbegin(),even.rend());
+    }
+    if(M>0){
+        sort(odd.rbegin(),odd.rend());
     }
 
-    while(i<M){
-        arr1.push_back(odd[i++]);
-    }
-    while(j<N){
-        arr1.push_back(even[j++]);
-    }
-
-    ll sum=0;
-    vector<ll> ans;
-    for(ll i=0;i<n;i++){
-        sum+=arr1[i];
-        if(sum%2==0){
-            sum=0;
+    if(M==0){
+        for(ll i=0;i<n;i++){
+            cout<<0<<" ";
         }
-        ans.push_back(sum);
+        cout<<endl;
+        return;
     }
+
+    if(N==0){
+        for(ll i=0;i<n;i++){
+            if(i%2==0){
+                cout<<odd[0]<<" ";
+            } else{
+                cout<<0<<" ";
+            }
+        }
+        cout<<endl;
+        return;
+    }
+
+
+    
+
+
+    vector<ll> ans(n,0);
+    ll sum=odd[0];
+    ans[0]=sum;
+    for(ll k=2;k<=N+1;k++){
+        sum+=even[k-2];
+        ans[k-1]=sum;
+    }
+
+    sum=ans[N];
+    for(ll k=N+2;k<n;k++){
+        ans[k-1]=sum-even[N-1];
+        ans[k]=sum;
+        k++;
+    }
+
+    if(M%2==0){
+        ans[n-1]=0;
+    } else{
+        ans[n-1]=sum;
+    }
+    
 
     for(ll i=0;i<n;i++){
         cout<<ans[i]<<" ";
     }
     cout<<endl;
+    // return;
 }
 
 int main() {
